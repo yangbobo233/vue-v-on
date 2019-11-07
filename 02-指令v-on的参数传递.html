@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on基本使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>开始计数：{{counter}}</h2>
+  <!--都能成功运行-->
+  <button @click="increment()">+</button>
+  <button @click="decrement">-</button>
+  <!--需要但没有传参数-->
+  <button @click="eventBtn">需要但没有传参数</button>
+  <!--需要event对象，同时也需要其他参数-->
+  <!--那么在调用方法时，使用 $event 获取浏览器产生的event对象-->
+  <button @click="eventBtn2(123,$event)">需要event和其他参数</button>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const count = new Vue({
+    el: '#app',
+    data: {
+      counter: 0
+    },
+    methods: {
+      increment() {
+        this.counter++;
+      },
+      decrement() {
+        this.counter--;
+      },
+      eventBtn(eventB){
+        console.log('-------',eventB);
+      },
+      eventBtn2(abc,event){
+        console.log('-------',abc,event);
+      }
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on修饰符</title>
+</head>
+<body>
+<div id="app">
+  <div @click="clickDiv">
+    aaaaaa
+    <button @click.stop="clickBtn">停止事件冒泡</button>
+  </div>
+  <form action="baidu" @submit.prevent>
+    <input type="submit" @click.prevent="clickPre" value="阻止默认行为">
+    <input type="text" @keyup="keyUp">
+    <input type="text" @keyup.enter="onEnter">
+    <input type="text" @keyup.13="onEnter">
+  </form>
+  <button @click.once="doOnce">只触发执行一次</button>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app=new Vue({
+    el:'#app',
+    data:{
+      message:'Hello'
+    },
+    methods:{
+      clickDiv (){
+        console.log('点div');
+      },
+      clickBtn (){
+        console.log('点按钮');
+      },
+      clickPre (){
+        console.log('点提交');
+      },
+      keyUp (){
+        console.log('keyUp');
+      },
+      onEnter (){
+        console.log('onEnter');
+      },
+      doOnce (){
+        console.log('执行');
+      }
+    }
+  });
+</script>
+</body>
+</html>
