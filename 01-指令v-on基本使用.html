@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>v-on基本使用</title>
+</head>
+<body>
+<div id="app">
+  <h2>开始计数：{{counter}}</h2>
+  <button v-on:click="counter++">+</button>
+  <button v-on:click="counter--">-</button>
+  <button v-on:click="increment">+</button>
+  <button v-on:click="decrement">-</button>
+  <button @click="increment">+</button>
+  <button @click="decrement">-</button>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  let count = new Vue({
+    el: '#app',
+    data: {
+      counter: 0
+    },
+    methods: {
+      increment() {
+        this.counter++;
+      },
+      decrement() {
+        this.counter--;
+      }
+    }
+  });
+</script>
+</body>
+</html>
